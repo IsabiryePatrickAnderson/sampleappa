@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <%= render'layouts/header' %>
-  </head>
-  <%= render'layouts/shim' %>
-  <body>
-    <%= yield %>
-    <%= render'layouts/footer' %>
-  </body>
-</html>
+	<html>
+		<head>
+		<title><%= full title(yield(:title)) %></title>
+		<%= stylesheet link tag "application", media: "all" %>
+		<%= javascript include tag "application" %>
+		<%= csrf meta tags %>
+		
+		<%= render'layouts/shim' %>
+		</head>
+		<body>
+			<header class="navbar navbar-fixed-top">
+			<%= render'layouts/header' %>
+			</header>
+			<div class="container">
+			<%= yield %>
+			<%= render'layouts/footer' %>
+			</div>
+		</body>
+	</html>
